@@ -1,5 +1,12 @@
+
 var server = require('http').Server()
-var io = require('socket.io')(server)
+var io = require('socket.io')(server,{
+	cors:{
+		origin:"http://127.0.0.1:8080",
+		// credentials: true,
+		transports: ['websocket', 'polling'],
+	}
+})
 
 var g_onlines = {} // 所有在线玩家
 var g_commands = new Array() // 指令数组

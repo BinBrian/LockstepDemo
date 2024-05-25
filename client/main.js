@@ -98,8 +98,11 @@ $(function () {
 	$("#login").show()
 	$("#tips").hide()
 
+	
 	// 连接socket
-	socket = io.connect('http://127.0.0.1:3000')
+	socket = io("http://127.0.0.1:3000",{
+		// withCredentials: true,
+	})
 
 	// socket连接成功
 	socket.on('open', function(json) {
